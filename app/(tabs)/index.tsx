@@ -114,10 +114,10 @@ const HomePage = () => {
       )}
 
       <Text style={styles.sectionTitle}>Star</Text>
-      {loadingSecond ? (
+      {loadingThree ? (
         <ActivityIndicator size="large" color="#FF5722" />
-      ) : errorSecond ? (
-        <Text style={styles.error}>{errorSecond}</Text>
+      ) : errorThree ? (
+        <Text style={styles.error}>{errorThree}</Text>
       ) : (
         <FlatList
           data={imagesThree}
@@ -138,7 +138,7 @@ export default HomePage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f4f4f9',
+    backgroundColor: '#141A26',
     paddingTop: 60,
     paddingHorizontal: 10,
   },
@@ -147,14 +147,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 30,
-    color: '#333',
+    color: '#5833A6',
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
     marginBottom: 10,
     marginTop: 20,
-    color: '#444',
+    color: '#5833A6',
     textAlign: 'center',
   },
   flatList: {
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   card: {
     width: width - 40,
     marginHorizontal: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#8679D9',
     borderRadius: 12,
     padding: 10,
     alignItems: 'center',
