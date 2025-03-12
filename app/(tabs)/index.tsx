@@ -12,12 +12,16 @@ const { width } = Dimensions.get('window');
 const HomePage = () => {
   const [imagesFirst, setImagesFirst] = useState<ImageData[]>([]);
   const [imagesSecond, setImagesSecond] = useState<ImageData[]>([]);
+  const [imagesThree, setImagesThree] = useState<ImageData[]>([]);
+  
 
   const [loadingFirst, setLoadingFirst] = useState<boolean>(true);
   const [loadingSecond, setLoadingSecond] = useState<boolean>(true);
+  const [loadingThree, setLoadingThree] = useState<boolean>(true);
 
   const [errorFirst, setErrorFirst] = useState<string | null>(null);
   const [errorSecond, setErrorSecond] = useState<string | null>(null);
+  const [errorThree, setErrorThree] = useState<string | null>(null);
 
   const fetchImages = async (query: string, setImages: Function, setLoading: Function, setError: Function) => {
     try {
@@ -56,6 +60,8 @@ const HomePage = () => {
   useEffect(() => {
     fetchImages('galaxy', setImagesFirst, setLoadingFirst, setErrorFirst);
     fetchImages('mars', setImagesSecond, setLoadingSecond, setErrorSecond);
+    fetchImages('Star', setImagesThree, setLoadingThree, setErrorThree);
+
   }, []);
 
   const renderItem = ({ item }: { item: ImageData }) => (
@@ -73,7 +79,7 @@ const HomePage = () => {
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Page Home</Text>
 
-      <Text style={styles.sectionTitle}>🌌 Galaxies 🌌</Text>
+      <Text style={styles.sectionTitle}>Galaxies</Text>
       {loadingFirst ? (
         <ActivityIndicator size="large" color="#4CAF50" />
       ) : errorFirst ? (
@@ -90,7 +96,7 @@ const HomePage = () => {
         />
       )}
 
-      <Text style={styles.sectionTitle}>🚀 Mars 🚀</Text>
+      <Text style={styles.sectionTitle}>Mars</Text>
       {loadingSecond ? (
         <ActivityIndicator size="large" color="#FF5722" />
       ) : errorSecond ? (
@@ -98,6 +104,23 @@ const HomePage = () => {
       ) : (
         <FlatList
           data={imagesSecond}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.nasa_id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          pagingEnabled
+          style={styles.flatList}
+        />
+      )}
+
+      <Text style={styles.sectionTitle}>Star</Text>
+      {loadingSecond ? (
+        <ActivityIndicator size="large" color="#FF5722" />
+      ) : errorSecond ? (
+        <Text style={styles.error}>{errorSecond}</Text>
+      ) : (
+        <FlatList
+          data={imagesThree}
           renderItem={renderItem}
           keyExtractor={(item) => item.nasa_id}
           horizontal
