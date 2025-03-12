@@ -72,13 +72,12 @@ const SearchPage = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Recherche d'images de la NASA</Text>
 
-      {/* Barre de recherche */}
+    
       <TextInput
         style={styles.searchInput}
         value={query}
         onChangeText={handleSearch}
         placeholder="Entrez un mot-clé..."
-        placeholderTextColor="#888"
       />
 
       {loading ? (
@@ -121,6 +120,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     marginBottom: 20,
     fontSize: 16,
+    color: '#5833A6',
   },
   loader: {
     marginTop: 20,
