@@ -10,9 +10,9 @@ interface ImageData {
 
 const SearchPage = () => {
   const [query, setQuery] = useState<string>(''); // Mot-clé recherché
-  const [images, setImages] = useState<ImageData[]>([]); // Liste des images trouvées
-  const [loading, setLoading] = useState<boolean>(false); // Indicateur de chargement
-  const [error, setError] = useState<string | null>(null); // Gestion des erreurs
+  const [images, setImages] = useState<ImageData[]>([]); 
+  const [loading, setLoading] = useState<boolean>(false); 
+  const [error, setError] = useState<string | null>(null); 
 
   // Fonction pour récupérer les images de la NASA selon un mot-clé
   const fetchImages = async (searchQuery: string) => {
@@ -27,9 +27,9 @@ const SearchPage = () => {
     try {
       const response = await axios.get('https://images-api.nasa.gov/search', {
         params: {
-          q: searchQuery, // Le mot-clé recherché
-          media_type: 'image', // Nous filtrons uniquement les images
-          page_size: 10, // Limite le nombre de résultats à 10
+          q: searchQuery, 
+          media_type: 'image', 
+          page_size: 10, 
         },
       });
 
@@ -57,7 +57,7 @@ const SearchPage = () => {
   // Fonction qui est appelée lors de la saisie dans la barre de recherche
   const handleSearch = (text: string) => {
     setQuery(text);
-    fetchImages(text); // Lance la recherche dès qu'il y a un texte
+    fetchImages(text);
   };
 
   // Rendu de chaque élément dans la FlatList
