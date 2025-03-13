@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomePage from '../screen/homePage';
 import Register from '../screen/register';
+import SearchPage from '../screen/searchPage';
 import { View, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
@@ -43,6 +44,7 @@ export default function MainNavigator() {
       <Stack.Navigator initialRouteName={initialRoute}>
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="SearchPage" component={SearchPage} />
       </Stack.Navigator>
   );
 }
