@@ -70,7 +70,7 @@ const SearchPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Recherche d'images de la NASA</Text>
+      <Text style={styles.header}>Recherche d'images de la NASA !</Text>
 
     
       <TextInput
