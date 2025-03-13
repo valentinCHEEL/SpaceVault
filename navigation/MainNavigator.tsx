@@ -6,6 +6,7 @@ import HomePage from '../screen/homePage';
 import Register from '../screen/register';
 import Login from '../screen/login';
 import { View, ActivityIndicator } from 'react-native';
+import CameraPage from '@/screen/cameraPage';
 
 const Stack = createStackNavigator();
 
@@ -65,9 +66,10 @@ export default function MainNavigator() {
 
   return (
       <Stack.Navigator initialRouteName={initialRoute}>
-        <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="HomePage" component={HomePage} options={{ headerShown: false }} />
+        <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Camera" component={CameraPage} options={{ headerShown: false }} />
       </Stack.Navigator>
   );
 }
