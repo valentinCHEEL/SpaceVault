@@ -1,50 +1,42 @@
-// filepath: c:\Users\arnau\OneDrive\Documents\Native\SpaceVault\navigation\MainNavigator.tsx
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomePage from '../screen/homePage';
 import Register from '../screen/register';
-import SearchPage from '../screen/searchPage';
+import TabNavigator from './TabNavigator';  // TabNavigator qui contient la barre
 import { View, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect, useState } from 'react';
 
 const Stack = createStackNavigator();
 
 export default function MainNavigator() {
-    const [initialRoute, setInitialRoute] = useState<'HomePage' | 'Register' | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
   useEffect(() => {
     const checkUserData = async () => {
-      try {
-        const userData = await AsyncStorage.getItem('user');
-        console.log('User data from AsyncStorage:', userData); // Log the user data
-        if (userData) {
-          setInitialRoute('HomePage');
-        } else {
-          setInitialRoute('Register');
-        }
-      } catch (error) {
-        console.error('Error checking user data in AsyncStorage', error);
-        setInitialRoute('Register');
+      const userData = await AsyncStorage.getItem('user');
+      console.log('User data from AsyncStorage:', userData);
+      if (userData) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
       }
     };
 
     checkUserData();
   }, []);
 
-  if (initialRoute === null) {
+  if (isLoggedIn === null) {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ActivityIndicator size="large" />
-        </View>
-      );
-    }
-  return (
-      <Stack.Navigator initialRouteName={initialRoute}>
-        <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="SearchPage" component={SearchPage} />
-      </Stack.Navigator>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
+  return isLoggedIn ? (
+    <TabNavigator /> // Barre en bas (Home + SearchPage)
+  ) : (
+    <Stack.Navigator>
+      <Stack.Screen name="Register" component={Register} />
+    </Stack.Navigator>
   );
 }
