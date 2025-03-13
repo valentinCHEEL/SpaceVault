@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, TextInput, Button, StyleSheet } from "react-native";
+import { Text, View, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native";
 import * as FileSystem from 'expo-file-system';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
@@ -107,6 +107,9 @@ export default function Register() {
         secureTextEntry
       />
       <Button title="Register" onPress={handleRegister} />
+      <TouchableOpacity onPress={() => navigation.navigate('Login' as never)}>
+        <Text style={styles.linkText}>Already have an account? Login</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -132,5 +135,9 @@ const styles = StyleSheet.create({
   },
   errorInput: {
     borderColor: "red",
+  },
+  linkText: {
+    color: "blue",
+    marginTop: 16,
   },
 });
