@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "nom-du-projet",
-    "slug": "nom-du-projet",
+    "name": "SpaceVault",
+    "slug": "SpaceVault",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/spacevault_icon.jpg",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.nomduprojet"
+      "package": "com.anonymous.SpaceVault",
+      "icon": "./assets/images/spacevault_icon.jpg"
     },
     "web": {
       "bundler": "metro",
