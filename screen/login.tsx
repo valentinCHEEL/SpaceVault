@@ -50,6 +50,7 @@ export default function Login() {
         placeholder="Username or Email"
         value={usernameOrEmail}
         onChangeText={setUsernameOrEmail}
+        keyboardType="email-address"
         autoCapitalize="none"
       />
       <TextInput
@@ -71,28 +72,32 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 16,
+    backgroundColor: '#141A26',
+    paddingTop: 60,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
   },
   title: {
-    fontSize: 24,
-    marginBottom: 16,
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 30,
+    color: '#5833A6',
   },
   input: {
-    width: "100%",
-    padding: 8,
-    marginVertical: 8,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 4,
+    backgroundColor: '#fff',
+    padding: 10,
+    marginBottom: 20,
+    borderRadius: 5,
   },
   errorText: {
-    color: "red",
-    marginBottom: 16,
+    color: 'red',
+    textAlign: 'center',
+    marginBottom: 20,
   },
   linkText: {
-    color: "blue",
-    marginTop: 16,
+    color: '#4CAF50',
+    textAlign: 'center',
+    marginTop: 20,
   },
 });
