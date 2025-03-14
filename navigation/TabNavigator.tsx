@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from '../screen/homePage';
 import SearchPage from '../screen/searchPage';
+import CameraPage from '../screen/cameraPage';
 import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
@@ -16,6 +17,8 @@ export default function TabNavigator() {
             iconName = 'home-outline';
           } else if (route.name === 'Search') {
             iconName = 'search-outline';
+          } else if (route.name === 'Camera') {
+            iconName = 'camera-outline'; // Icône pour la caméra
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -26,6 +29,7 @@ export default function TabNavigator() {
     >
       <Tab.Screen name="Home" component={HomePage} />
       <Tab.Screen name="Search" component={SearchPage} />
+      <Tab.Screen name="Camera" component={CameraPage} />
     </Tab.Navigator>
   );
 }
