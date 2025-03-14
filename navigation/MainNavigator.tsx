@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { View, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import * as FileSystem from 'expo-file-system';
+
+import TabNavigator from './TabNavigator';
 import HomePage from '../screen/homePage';
 import Register from '../screen/register';
 import Login from '../screen/login';
-import { View, ActivityIndicator } from 'react-native';
-import CameraPage from '@/screen/cameraPage';
+import CameraPage from '@/screen/cameraPage'; 
 
 const Stack = createStackNavigator();
 
@@ -31,6 +34,7 @@ export default function MainNavigator() {
         } else {
           console.log('user.json file does not exist');
         }
+        
 
         if (counter >= 3) {
           await AsyncStorage.clear();
@@ -56,7 +60,7 @@ export default function MainNavigator() {
     checkUserData();
   }, []);
 
-  if (initialRoute === null) {
+  if (!initialRoute) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" />
@@ -65,11 +69,11 @@ export default function MainNavigator() {
   }
 
   return (
-      <Stack.Navigator initialRouteName={initialRoute}>
-        <Stack.Screen name="HomePage" component={HomePage} options={{ headerShown: false }} />
-        <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name="Camera" component={CameraPage} options={{ headerShown: false }} />
-      </Stack.Navigator>
+    <Stack.Navigator initialRouteName={initialRoute} screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomePage" component={TabNavigator} />  
+      <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Camera" component={CameraPage} />
+    </Stack.Navigator>
   );
 }

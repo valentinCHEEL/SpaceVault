@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, ActivityIndicator, FlatList, Dimensions,
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 
+
 interface ImageData {
   nasa_id: string;
   title: string;
