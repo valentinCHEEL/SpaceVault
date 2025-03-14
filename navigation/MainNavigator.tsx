@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { View, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import * as FileSystem from 'expo-file-system';
 
 import TabNavigator from './TabNavigator';
 import HomePage from '../screen/homePage';
@@ -24,6 +25,16 @@ export default function MainNavigator() {
 
         console.log('User data from AsyncStorage:', userData);
         console.log('App close counter:', counter);
+
+        const filePath = FileSystem.documentDirectory + "assets/user.json";
+        const fileInfo = await FileSystem.getInfoAsync(filePath);
+        if (fileInfo.exists) {
+          const content = await FileSystem.readAsStringAsync(filePath);
+          console.log('Contents of user.json:', content);
+        } else {
+          console.log('user.json file does not exist');
+        }
+        
 
         if (counter >= 3) {
           await AsyncStorage.clear();
