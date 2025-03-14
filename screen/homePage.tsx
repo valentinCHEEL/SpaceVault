@@ -82,7 +82,8 @@ const HomePage = () => {
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Page Home</Text>
 
-      <Button title="Go to Camera" onPress={() => navigation.navigate('Camera' as never)} />
+      <Button title="Lire le README" onPress={() => navigation.navigate('Readme' as never)} />
+
 
       <Text style={styles.sectionTitle}>Galaxies</Text>
       {loadingFirst ? (
