@@ -9,6 +9,8 @@ import TabNavigator from './TabNavigator';
 import HomePage from '../screen/homePage';
 import Register from '../screen/register';
 import Login from '../screen/login';
+
+import ReadmePage from '../screen/readmePage';
 import CameraPage from '@/screen/cameraPage'; 
 
 const Stack = createStackNavigator();
@@ -74,6 +76,8 @@ export default function MainNavigator() {
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Camera" component={CameraPage} />
+
+      <Stack.Screen name="Readme" component={ReadmePage} />
     </Stack.Navigator>
   );
 }
