@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, StyleSheet, ActivityIndicator, FlatList, Dimensions, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ActivityIndicator, FlatList, Dimensions, ScrollView, Button } from 'react-native';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 
 interface ImageData {
@@ -75,10 +76,13 @@ const HomePage = () => {
       />
     </View>
   );
+  const navigation = useNavigation();
 
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Page Home</Text>
+
+      <Button title="Go to Camera" onPress={() => navigation.navigate('Camera' as never)} />
 
       <Text style={styles.sectionTitle}>Galaxies</Text>
       {loadingFirst ? (
