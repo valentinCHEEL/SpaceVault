@@ -6,11 +6,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as FileSystem from 'expo-file-system';
 
 import TabNavigator from './TabNavigator';
-import HomePage from '../screen/homePage';
 import Register from '../screen/register';
-import Login from '../screen/login';
+import Login from '@/screen/login';
 
-import ReadmePage from '../screen/readmePage';
+import ReadmePage from '@/screen/readmePage';
 import CameraPage from '@/screen/cameraPage'; 
 
 const Stack = createStackNavigator();
