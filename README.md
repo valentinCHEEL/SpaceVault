@@ -1,6 +1,6 @@
-NASA Image Gallery
+SpaceVault
 Présentation rapide du projet
-NASA Image Gallery est une application qui permet aux utilisateurs de découvrir, rechercher et partager des images de la NASA via son API officielle. L'application propose plusieurs fonctionnalités :
+SpaceVault est une application qui permet aux utilisateurs de découvrir, rechercher et partager des images de la NASA via son API officielle. L'application propose plusieurs fonctionnalités :
 
 Parcourir une galerie d'images aléatoires de la NASA, avec la possibilité de faire défiler les photos.
 Rechercher des photos spécifiques en fonction de mots-clés.
