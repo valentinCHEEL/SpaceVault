@@ -17,7 +17,11 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.SpaceVault",
-      "icon": "./assets/images/spacevault_icon.jpg"
+      "icon": "./assets/images/spacevault_icon.jpg",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -46,6 +50,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "3eb7d5d0-77c7-4d98-8b3f-0e24fe13ce03"
+      }
     }
   }
 }
